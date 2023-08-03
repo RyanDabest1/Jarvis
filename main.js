@@ -3,7 +3,7 @@ let body = document.querySelector('body')
 let chatContainer = document.querySelector('.chat-container')
 let userInput = document.getElementById('chat-input')
 let userText = null;
-const API_KEY = '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'
+const API_KEY = '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'
 let createElement = (html, className) =>{
     let chatDiv = document.createElement('div');
     chatDiv.classList.add('chat', className)
@@ -42,6 +42,7 @@ const getChatRes = async(incoming) => {
     try {
         const response = await (await fetch(api_url, requestOptions)).json();
         pElm.textContent = response.choices[0].text.trim();
+        console.log(response.choices[0].text)
     }catch(error){
         console.log(error)
     }
