@@ -3,7 +3,7 @@ let body = document.querySelector('body')
 let chatContainer = document.querySelector('.chat-container')
 let userInput = document.getElementById('chat-input')
 let userText = null;
-const API_KEY = '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'
+let API_KEY = config.API_KEY;
 let createElement = (html, className) =>{
     let chatDiv = document.createElement('div');
     chatDiv.classList.add('chat', className)
