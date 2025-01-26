@@ -15,8 +15,6 @@ const copyRes = (copybtn) => {
     navigator.clipboard.writeText(responseTextElm.textContent).then(()=>{
         alert("Successfully Copied to ClipBoard")
     }).catch(() => {alert("Smt went wrong lmao")})
-
-
 }
 
 const getChatRes = async(incoming) => {
@@ -31,10 +29,8 @@ const getChatRes = async(incoming) => {
         body : JSON.stringify({
             model: "text-davinci-003",
             prompt: userText,
-            max_tokens: 2048,
-            temperature: 0.2,
-            top_p : 1,
-            n:1,
+            max_tokens: 2808,
+           
             stop : null
         })
     }
@@ -44,7 +40,7 @@ const getChatRes = async(incoming) => {
         pElm.textContent = response.choices[0].text.trim();
         console.log(response.choices[0].text)
     }catch(error){
-        console.log(error)
+        pElm.textContent = `There was an error getting response \n Error Log : ${error}`
     }
     document.querySelector('.typing-animation').remove();
     incoming.querySelector('.chat-details').append(pElm)
